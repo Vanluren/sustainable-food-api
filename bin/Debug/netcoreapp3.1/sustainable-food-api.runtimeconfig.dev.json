@@ -1,0 +1,8 @@
+{
+  "runtimeOptions": {
+    "additionalProbingPaths": [
+      "/Users/villadsvalur/.dotnet/store/|arch|/|tfm|",
+      "/Users/villadsvalur/.nuget/packages"
+    ]
+  }
+}

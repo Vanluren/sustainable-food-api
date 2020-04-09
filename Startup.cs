@@ -10,11 +10,16 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Microsoft.EntityFrameworkCore;
+using Pomelo.EntityFrameworkCore.MySql.Infrastructure;
+using sustainable_food_api.Services;
 
 namespace sustainable_food_api
 {
     public class Startup
     {
+        private string _connectionString = "Server=localhost;User=root;Password=root";
+
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -26,6 +31,10 @@ namespace sustainable_food_api
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+            // other service configurations go here
+            // replace "YourDbContext" with the class name of your DbContext
+            services.AddDbContextPool<DbService>(o => o.UseMySql(_connectionString));
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
