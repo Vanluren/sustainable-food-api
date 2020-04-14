@@ -52,13 +52,25 @@
               "target": "Package",
               "version": "[3.1.3, )"
             },
+            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
+              "target": "Package",
+              "version": "[3.1.2, )"
+            },
             "MySql.Data.EntityFrameworkCore": {
               "target": "Package",
               "version": "[6.10.8, )"
             },
+            "NetTopologySuite": {
+              "target": "Package",
+              "version": "[2.0.0, )"
+            },
             "Pomelo.EntityFrameworkCore.MySql": {
               "target": "Package",
               "version": "[3.1.1, )"
+            },
+            "System.Data.Spatial": {
+              "target": "Package",
+              "version": "[*, )"
             }
           },
           "imports": [

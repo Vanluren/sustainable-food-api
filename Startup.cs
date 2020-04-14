@@ -12,14 +12,12 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.EntityFrameworkCore;
 using Pomelo.EntityFrameworkCore.MySql.Infrastructure;
-using sustainable_food_api.Services;
+using sustainable_food_api.Models;
 
 namespace sustainable_food_api
 {
     public class Startup
     {
-        private string _connectionString = "Server=localhost;User=root;Password=root";
-
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -33,7 +31,7 @@ namespace sustainable_food_api
             services.AddControllers();
             // other service configurations go here
             // replace "YourDbContext" with the class name of your DbContext
-            services.AddDbContextPool<DbService>(o => o.UseMySql(_connectionString));
+            services.AddDbContextPool<DatabaseContext>(options => options.UseMySql(Configuration["Database:ConnectionString"]));
 
         }
 
@@ -45,7 +43,7 @@ namespace sustainable_food_api
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseHttpsRedirection();
+            if (!env.IsDevelopment()) { app.UseHttpsRedirection(); }
 
             app.UseRouting();
 
