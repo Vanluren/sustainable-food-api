@@ -9,7 +9,6 @@ using sustainable_food_api.Models;
 
 namespace sustainable_food_api.Controllers
 {
-
     [Route("api/users")]
     [ApiController]
     public class UsersController : ControllerBase

@@ -10,8 +10,6 @@ namespace sustainable_food_api.Models
         {
         }
 
-        public DbSet<User> Users { get; set; }
-
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<User>().Property(e => e.Id).ValueGeneratedOnAdd();
